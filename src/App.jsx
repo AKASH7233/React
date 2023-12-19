@@ -17,6 +17,7 @@ function App() {
           setLoading(true)
           setCount(response.data)
           setLoading(false)
+          console.log(count)
         })
         .catch((error)=>{
           setLoading(false)
@@ -25,7 +26,6 @@ function App() {
         })
     })()
   }, [search])
-
 
   return (
     <>
@@ -37,10 +37,10 @@ function App() {
       onChange={(e)=>{setUser(e.target.value)}}
       />
       <button onClick={()=>{setSearch(prev=> !prev)}}>search</button>
-
-      {count.login}
+      <h2>{count.name}</h2>
+      <h2>{count.login}</h2>
+      <h2>{count.bio}</h2>
       <h2>{loading ? 'Loading ..' : ''}</h2>
-      <h2>{user}</h2>
       {user.length==0 ? 'Please Enter your Username' : ``}
       {error ? 'something went wrong  ' : ``}
     </>
